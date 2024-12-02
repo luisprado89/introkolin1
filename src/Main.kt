@@ -1,14 +1,66 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+    //1. Tipos de datos
+    //Enteros
+    val integer: Int = 29
+    val long: Long = 1000000000L
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+    //Flotante
+    val float: Float = 3.14f
+    val double: Double = 3.1415926500054343
+
+    //Booleanos
+    var isFavorite: Boolean = true
+    isFavorite = false
+
+    //Caracteres (Char)
+    val character: Char = 'k'
+    //Cadenas (Los famosos Strings)
+    val regards: String = "Hola mundo"
+    // Imprimir por terminal
+    println("Entero: "+integer)
+    println("Long: "+long)
+    println("isFavorite: "+isFavorite)
+    println("regards: "+regards)
+
+    //2. Bucles
+    //For(y sus derivados), while, doWhile
+    for (i in 0..5){
+        println("Value for i; "+i)
+    }
+    for (i in 0..5 step 2){
+        println("Value for i de 2 en 2; "+i)
+    }
+
+    //while
+    var valueA = 3
+    var valueB = 10
+
+    while (valueA < valueB){
+        //formas de incrementar el valor
+        //valueA++
+        //valueA.inc()// aveces da problemas este
+        //valueA= valueA+1
+        valueA+=1
+        println("Hola soy pepe.")
+    }
+
+    do {
+        valueA++
+    }while (valueA<valueB)
+
+    //3. When (Cases)<- Switch en Java
+    val day = 5
+    
+    when(day){
+        1 -> println("Hoy es Lunes")
+        2 -> println("Hoy es Martes")
+        3 -> println("Hoy es Miercoles")
+        4 -> println("Hoy es Jueves")
+        5 -> println("Hoy es Viernes")
+        6 -> println("Hoy es Sabado")
+        7 -> println("Hoy es Domingo")
+        else->{
+            println("No has ingresado un dia valido")
+        }
     }
 }
