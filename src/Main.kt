@@ -67,8 +67,10 @@ fun main() {
     multiplicacion()
     division()
     division2Enteros()
+    porcentaje()
 
 }
+
 fun suma(){
     val num1 = 2
     val num2 = 2
@@ -116,5 +118,28 @@ fun division2Enteros(){
         println("La division de $num1/$num2 es : $resultado")
     } else {
         println("La division de $num1/$num2 es: null (división por cero)")
+    }
+}
+fun porcentaje(){
+    val partidosJugados = 10
+    val partidosGanados = 9
+
+    // Verificamos que no se haya jugado 0 partidos para evitar una división por cero
+    if (partidosJugados != 0) {
+        // Calculamos el porcentaje de victorias
+        // Convertimos a Double para que el cálculo sea en punto flotante por que sino nos da error
+        val porcentaje = (partidosGanados.toDouble() / partidosJugados) * 100
+        // Imprimimos el resultado con formato
+        println("El porcentaje de victorias es: %.0f%%".format(porcentaje))//Aplicamos format a la constante
+        /*Plantilla .format en Kotlin  https://sparkbyexamples.com/kotlin/format-string-in-kotlin-with-examples/
+        %d: Formato para enteros (decimal).
+        %f: Formato para números de punto flotante (double, float).// pi = 3.14159 -> .format("%.2f",pi) sou 3.14
+        %s: Formato para cadenas de texto.
+        %x: Formato para enteros en hexadecimal.
+        %%: Representa el símbolo % literal. ->  necesario para mostrar por pantalla -> 90%
+        */
+    } else {
+        // Si no se han jugado partidos, mostramos un mensaje adecuado
+        println("No se puede calcular el porcentaje de victorias (ningún partido jugado).")
     }
 }
