@@ -65,6 +65,7 @@ fun main() {
     }
     suma()
     multiplicacion()
+    division()
 }
 fun suma(){
     val num1 = 2
@@ -77,4 +78,10 @@ fun multiplicacion(){
     val num2 = 5
     val resultado = num1 * num2
     println("La multiplicación de $num1 * $num2 es: $resultado")
+}
+fun division(){
+    val num1 = 10
+    val num2 = 2
+    val resultado = num1 / num2
+    println("La division de $num1/$num2 es : $resultado")
 }
