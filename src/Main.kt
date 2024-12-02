@@ -63,4 +63,11 @@ fun main() {
             println("No has ingresado un dia valido")
         }
     }
+    suma()
+}
+fun suma(){
+    val num1 = 2
+    val num2 = 2
+    val resultado = num1+num2
+    println("La suma de $num1 + $num2 es: $resultado")
 }
