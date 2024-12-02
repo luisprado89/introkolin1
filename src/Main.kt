@@ -68,22 +68,26 @@ fun main() {
     division()
     division2Enteros()
     porcentaje()
+    valormayor()
 
 }
 
 fun suma(){
+    //Ejercicio 1
     val num1 = 2
     val num2 = 2
     val resultado = num1+num2
     println("La suma de $num1 + $num2 es: $resultado")
 }
 fun multiplicacion(){
+    //Ejercicio 2
     val num1 = 2
     val num2 = 5
     val resultado = num1 * num2
     println("La multiplicación de $num1 * $num2 es: $resultado")
 }
 fun division(){
+    //Ejercicio 3
     val num1 = 5
     val num2 = 0
     val num3 = 5
@@ -107,6 +111,7 @@ fun division(){
     }
 }
 fun division2Enteros(){
+    //Ejercicio 4
     val num1 = 5
     val num2 = 2
 
@@ -121,6 +126,7 @@ fun division2Enteros(){
     }
 }
 fun porcentaje(){
+    //Ejercicio 5
     val partidosJugados = 10
     val partidosGanados = 9
 
@@ -142,4 +148,14 @@ fun porcentaje(){
         // Si no se han jugado partidos, mostramos un mensaje adecuado
         println("No se puede calcular el porcentaje de victorias (ningún partido jugado).")
     }
+}
+fun valormayor(){
+    //Ejercicio 6
+    val num1 = 4
+    val num2 = 7
+//Verificamos el numero mayor entre num1 y num2
+    val mayor = if (num1>num2) num1 else num2
+    //Imprimimos el resultado por pantalla
+    println("El mayor entre $num1 y $num2 es: $mayor")
+
 }
