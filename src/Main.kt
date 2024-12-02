@@ -80,8 +80,25 @@ fun multiplicacion(){
     println("La multiplicación de $num1 * $num2 es: $resultado")
 }
 fun division(){
-    val num1 = 10
-    val num2 = 2
-    val resultado = num1 / num2
-    println("La division de $num1/$num2 es : $resultado")
+    val num1 = 5
+    val num2 = 0
+    val num3 = 5
+    val num4 = 2
+
+    // Realizamos las divisiones, controlando si el divisor es 0
+    val resultado1 = if (num2 != 0) num1.toDouble() / num2 else null
+    val resultado2 = if (num4 != 0) num3.toDouble() / num4 else null
+
+    // Imprimimos los resultados
+    if (resultado1 != null) {
+        println("La division de $num1/$num2 es : $resultado1")
+    } else {
+        println("La division de $num1/$num2 es: null (división por cero)")
+    }
+
+    if (resultado2 != null) {
+        println("La division de $num3/$num4 es : $resultado2")
+    } else {
+        println("La division de $num3/$num4 es: null (división por cero)")
+    }
 }
