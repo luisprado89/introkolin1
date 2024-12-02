@@ -66,6 +66,8 @@ fun main() {
     suma()
     multiplicacion()
     division()
+    division2Enteros()
+
 }
 fun suma(){
     val num1 = 2
@@ -100,5 +102,19 @@ fun division(){
         println("La division de $num3/$num4 es : $resultado2")
     } else {
         println("La division de $num3/$num4 es: null (división por cero)")
+    }
+}
+fun division2Enteros(){
+    val num1 = 5
+    val num2 = 2
+
+    // Realizamos la división, controlando si el divisor es 0
+    val resultado = if (num2 != 0) num1 / num2 else null
+
+    // Imprimimos el resultado
+    if (resultado != null) {
+        println("La division de $num1/$num2 es : $resultado")
+    } else {
+        println("La division de $num1/$num2 es: null (división por cero)")
     }
 }
