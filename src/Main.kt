@@ -1,4 +1,9 @@
+import java.util.Scanner
+
+val  scanner = Scanner(System.`in`)//Usamos Scanner para recibir datos por teclado
+
 fun main() {
+
     //1. Tipos de datos
     //Enteros
     val integer: Int = 29
@@ -21,6 +26,35 @@ fun main() {
     println("Long: "+long)
     println("isFavorite: "+isFavorite)
     println("regards: "+regards)
+
+
+    /*
+    Operadores de comparación
+
+    == (Igual a): Compara si dos valores son iguales. Devuelve true si lo son, false en caso contrario.
+    != (Distinto de): Compara si dos valores son diferentes. Devuelve true si lo son, false en caso contrario.
+    < (Menor que): Devuelve true si el primer valor es menor que el segundo, false en caso contrario.
+    > (Mayor que): Devuelve true si el primer valor es mayor que el segundo, false en caso contrario.
+    <= (Menor o igual a): Devuelve true si el primer valor es menor o igual al segundo, false en caso contrario.
+    >= (Mayor o igual a): Devuelve true si el primer valor es mayor o igual al segundo, false en caso contrario.
+     */
+    /*
+    El if y el else son estructuras de control de flujo en programación que permiten tomar decisiones basadas en condiciones. En esencia:
+
+    if: Significa "si" en inglés. Evalúa una condición. Si la condición es verdadera (true), ejecuta un bloque de código.
+    else: Significa "sino". Se utiliza para ejecutar otro bloque de código cuando la condición del if es falsa (false).
+
+    Funcionamiento básico
+
+    if revisa una condición.
+    Si la condición es verdadera, ejecuta el bloque de código asociado al if.
+    Si la condición es falsa y existe un else, ejecuta el bloque de código asociado al else.
+    */
+
+    val numero = 5
+    val resultado = if (numero > 0) "Positivo" else "Negativo o Cero"
+    println(resultado)
+
 
     //2. Bucles
     //For(y sus derivados), while, doWhile
@@ -63,99 +97,16 @@ fun main() {
             println("No has ingresado un dia valido")
         }
     }
-    suma()
-    multiplicacion()
-    division()
-    division2Enteros()
-    porcentaje()
-    valormayor()
+    exercise1()
+}//main
 
-}
-
-fun suma(){
+fun exercise1(){
     //Ejercicio 1
-    val num1 = 2
-    val num2 = 2
-    val resultado = num1+num2
-    println("La suma de $num1 + $num2 es: $resultado")
-}
-fun multiplicacion(){
-    //Ejercicio 2
-    val num1 = 2
-    val num2 = 5
-    val resultado = num1 * num2
-    println("La multiplicación de $num1 * $num2 es: $resultado")
-}
-fun division(){
-    //Ejercicio 3
-    val num1 = 5
-    val num2 = 0
-    val num3 = 5
-    val num4 = 2
-
-    // Realizamos las divisiones, controlando si el divisor es 0
-    val resultado1 = if (num2 != 0) num1.toDouble() / num2 else null
-    val resultado2 = if (num4 != 0) num3.toDouble() / num4 else null
-
-    // Imprimimos los resultados
-    if (resultado1 != null) {
-        println("La division de $num1/$num2 es : $resultado1")
-    } else {
-        println("La division de $num1/$num2 es: null (división por cero)")
-    }
-
-    if (resultado2 != null) {
-        println("La division de $num3/$num4 es : $resultado2")
-    } else {
-        println("La division de $num3/$num4 es: null (división por cero)")
-    }
-}
-fun division2Enteros(){
-    //Ejercicio 4
-    val num1 = 5
-    val num2 = 2
-
-    // Realizamos la división, controlando si el divisor es 0
-    val resultado = if (num2 != 0) num1 / num2 else null
-
-    // Imprimimos el resultado
-    if (resultado != null) {
-        println("La division de $num1/$num2 es : $resultado")
-    } else {
-        println("La division de $num1/$num2 es: null (división por cero)")
-    }
-}
-fun porcentaje(){
-    //Ejercicio 5
-    val partidosJugados = 10
-    val partidosGanados = 9
-
-    // Verificamos que no se haya jugado 0 partidos para evitar una división por cero
-    if (partidosJugados != 0) {
-        // Calculamos el porcentaje de victorias
-        // Convertimos a Double para que el cálculo sea en punto flotante por que sino nos da error
-        val porcentaje = (partidosGanados.toDouble() / partidosJugados) * 100
-        // Imprimimos el resultado con formato
-        println("El porcentaje de victorias es: %.0f%%".format(porcentaje))//Aplicamos format a la constante
-        /*Plantilla .format en Kotlin  https://sparkbyexamples.com/kotlin/format-string-in-kotlin-with-examples/
-        %d: Formato para enteros (decimal).
-        %f: Formato para números de punto flotante (double, float).// pi = 3.14159 -> .format("%.2f",pi) sou 3.14
-        %s: Formato para cadenas de texto.
-        %x: Formato para enteros en hexadecimal.
-        %%: Representa el símbolo % literal. ->  necesario para mostrar por pantalla -> 90%
-        */
-    } else {
-        // Si no se han jugado partidos, mostramos un mensaje adecuado
-        println("No se puede calcular el porcentaje de victorias (ningún partido jugado).")
-    }
-}
-fun valormayor(){
-    //Ejercicio 6
-    val num1 = 4
-    val num2 = 7
-//Verificamos el numero mayor entre num1 y num2
-    val mayor = if (num1>num2) num1 else num2
-    //Imprimimos el resultado por pantalla
-    println("El mayor entre $num1 y $num2 es: $mayor")
-
+    println("Ejercicio 1: Suma")
+    print("Introduce el primer número: ")
+    val num1 = scanner.nextInt()
+    print("Introduce el segundo número: ")
+    val num2 = scanner.nextInt()
+    val resultado = num1 + num2
+    println("La suma de $num1 + $num2 es: $resultado\n")
 }
