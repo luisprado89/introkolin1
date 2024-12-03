@@ -8,7 +8,8 @@ fun main() {
     //exercise2()
     //exercise3()
     //exercise4()
-    exercise5()
+    //exercise5()
+    exercise6()
 
 }//main
 
@@ -204,4 +205,20 @@ fun exercise5(){
         // Si no se han jugado partidos, mostramos un mensaje adecuado
         println("No se puede calcular el porcentaje de victorias (ningún partido jugado).")
     }
+}
+fun exercise6(){
+    //Ejercicio 6
+    //Crea una función que dados 2 números devuelva el de mayor valor
+    //Ejemplo:
+    //4 y 7 -> 7
+
+    println("-------------------------------------------")
+    print("Introduce el primer número: ")
+    val num1 = scanner.nextInt()
+    print("Introduce el segundo número: ")
+    val num2 = scanner.nextInt()
+    //Verificamos el numero mayor entre num1 y num2
+    val mayor = if (num1>num2) num1 else num2
+    //Imprimimos el resultado por pantalla
+    println("El mayor entre $num1 y $num2 es: $mayor")
 }
