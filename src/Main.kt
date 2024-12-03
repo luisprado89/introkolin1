@@ -98,6 +98,7 @@ fun main() {
         }
     }
     exercise1()
+    exercise2()
 }//main
 
 fun exercise1(){
@@ -108,5 +109,15 @@ fun exercise1(){
     print("Introduce el segundo número: ")
     val num2 = scanner.nextInt()
     val resultado = num1 + num2
-    println("La suma de $num1 + $num2 es: $resultado\n")
+    println("La suma de $num1 + $num2 es: $resultado")
+}
+fun exercise2() {
+    //Ejercicio 2
+    println("Ejercicio 2: Multiplicación")
+    print("Introduce el primer número: ")
+    val num1 = scanner.nextInt()
+    print("Introduce el segundo número: ")
+    val num2 = scanner.nextInt()
+    val resultado = num1 * num2
+    println("La multiplicación de $num1 * $num2 es: $resultado")
 }
