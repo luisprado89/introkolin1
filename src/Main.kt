@@ -9,8 +9,8 @@ fun main() {
     //exercise3()
     //exercise4()
     //exercise5()
-    exercise6()
-
+    //exercise6()
+    exercise7()
 
 }//main
 
@@ -223,6 +223,7 @@ fun exercise6(){
     //Imprimimos el resultado por pantalla
     println("El mayor entre $num1 y $num2 es: $mayor")
 }
+
 fun exercise7(){
     //Ejercicio 7
     //Calcula el volumen de una piscina dado el ancho, largo y la altura
