@@ -10,7 +10,8 @@ fun main() {
     //exercise4()
     //exercise5()
     //exercise6()
-    exercise7()
+    //exercise7()
+    exercise8()
 
 }//main
 
@@ -249,3 +250,36 @@ fun exercise7(){
     println("El volumen de la piscina con ancho $ancho, largo $largo y altura $altura es: $volumen")
 
 }
+
+fun exercise8() {
+    //Ejercicio 8
+    //Crea una función para calcular los X primeros números primos
+    //Ejemplo:
+    //los 5 primeros: 1, 2, 3, 5, 7
+    // el número 1 no es primo por esto no lo imprimimos por pantalla
+    print("Introduce cuántos números primos deseas calcular: ")
+    val x = scanner.nextInt()
+
+    var contador = 0//llevamos el registro de primos hemos encontrado
+    var numero = 2//empezamos con 2
+
+    println("Los $x primeros números primos son:")
+    while (contador < x) {//mientras contador sea menor que la cantidad que le pedimos
+        var esPrimo = true// Asumimos inicialmente que el número es primo
+        // Verificamos si el número actual tiene divisores (aparte de 1 y él mismo)
+        for (i in 2 until numero) {// Iteramos desde 2 hasta el número anterior a "numero"
+            if (numero % i == 0) { // Si "numero" es divisible por "i" (sin residuo)
+                esPrimo = false // Entonces no es primo
+                break // Terminamos el bucle porque ya sabemos que no es primo
+            }
+        }
+        if (esPrimo) {// Si el número es primo (no tuvo divisores en el bucle anterior)
+            // Imprimimos, si es el último número (contador == x - 1), lo imprimimos sin coma
+            // Para los demás, lo imprimimos seguido de una coma
+            print(if (contador == x - 1) "$numero" else "$numero,")
+            contador++// Incrementamos el contador de números primos encontrados
+        }
+        numero++ // Pasamos al siguiente número para evaluarlo
+    }
+}
+
