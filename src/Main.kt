@@ -7,7 +7,9 @@ fun main() {
     //exercise1()
     //exercise2()
     //exercise3()
-    exercise4()
+    //exercise4()
+    exercise5()
+
 }//main
 
 fun principal(){
@@ -170,5 +172,36 @@ fun exercise4() {
         println("La división entera de $num1/$num2 es: $resultado")
     } else {
         println("La división de $num1/$num2 es: null (división por cero)")
+    }
+}
+fun exercise5(){
+    //Ejercicio 5
+    //Crea una función que calcule el porcentaje de victorias de un equipo de futbol según los partidos que ha jugado y los que ha ganado
+    //Ejemplo:
+    //jugados 10 partidos ganados 9 -> 90%
+
+    print("Introduce los partidos Jugados: ")
+    val partidosJugados = scanner.nextInt()
+
+    print("Introduce los partidos Ganados: ")
+    val partidosGanados = scanner.nextInt()
+
+    // Verificamos que no se haya jugado 0 partidos para evitar una división por cero
+    if (partidosJugados != 0) {
+        // Calculamos el porcentaje de victorias
+        // Convertimos a Double para que el cálculo sea en punto flotante por que sino nos da error
+        val porcentaje = (partidosGanados.toDouble() / partidosJugados) * 100
+        // Imprimimos el resultado con formato
+        println("El porcentaje de victorias es: %.0f%%".format(porcentaje))//Aplicamos format a la constante
+        /*Plantilla .format en Kotlin  https://sparkbyexamples.com/kotlin/format-string-in-kotlin-with-examples/
+        %d: Formato para enteros (decimal).
+        %f: Formato para números de punto flotante (double, float).// pi = 3.14159 -> .format("%.2f",pi) sou 3.14
+        %s: Formato para cadenas de texto.
+        %x: Formato para enteros en hexadecimal.
+        %%: Representa el símbolo % literal. ->  necesario para mostrar por pantalla -> 90%
+        */
+    } else {
+        // Si no se han jugado partidos, mostramos un mensaje adecuado
+        println("No se puede calcular el porcentaje de victorias (ningún partido jugado).")
     }
 }
