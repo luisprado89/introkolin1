@@ -9,7 +9,8 @@ fun main() {
     //exercise3()
     //exercise4()
     //exercise5()
-    exercise6()
+    //exercise6()
+    exercise7()
 
 }//main
 
@@ -221,4 +222,30 @@ fun exercise6(){
     val mayor = if (num1>num2) num1 else num2
     //Imprimimos el resultado por pantalla
     println("El mayor entre $num1 y $num2 es: $mayor")
+}
+
+fun exercise7(){
+    //Ejercicio 7
+    //Calcula el volumen de una piscina dado el ancho, largo y la altura
+    //Ejemplo:
+    //ancho 4 largo 4 alto 3 -> 48
+    println("-------------------------------------------")
+    println("Cálculo del volumen de una piscina")
+
+    // Solicitar las dimensiones de la piscina
+    print("Introduce el ancho de la piscina: ")
+    val ancho = scanner.nextDouble()
+
+    print("Introduce el largo de la piscina: ")
+    val largo = scanner.nextDouble()
+
+    print("Introduce la altura de la piscina: ")
+    val altura = scanner.nextDouble()
+
+    // Calcular el volumen
+    val volumen = ancho * largo * altura
+
+    // Mostrar el resultado
+    println("El volumen de la piscina con ancho $ancho, largo $largo y altura $altura es: $volumen")
+
 }
