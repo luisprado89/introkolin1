@@ -3,6 +3,14 @@ import java.util.Scanner
 val  scanner = Scanner(System.`in`)//Usamos Scanner para recibir datos por teclado
 
 fun main() {
+    //principal()
+    //exercise1()
+    //exercise2()
+    //exercise3()
+
+}//main
+
+fun principal(){
 
     //1. Tipos de datos
     //Enteros
@@ -84,7 +92,7 @@ fun main() {
 
     //3. When (Cases)<- Switch en Java
     val day = 5
-    
+
     when(day){
         1 -> println("Hoy es Lunes")
         2 -> println("Hoy es Martes")
@@ -97,10 +105,7 @@ fun main() {
             println("No has ingresado un dia valido")
         }
     }
-    //exercise1()
-    //exercise2()
-    exercise3()
-}//main
+}
 
 fun exercise1(){
     //Ejercicio 1
