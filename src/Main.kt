@@ -7,7 +7,7 @@ fun main() {
     //exercise1()
     //exercise2()
     //exercise3()
-
+    exercise4()
 }//main
 
 fun principal(){
@@ -150,6 +150,24 @@ fun exercise3() {
 
     if (resultado != null) {
         println("La división de $num1/$num2 es: $resultado")
+    } else {
+        println("La división de $num1/$num2 es: null (división por cero)")
+    }
+}
+fun exercise4() {
+    //Ejercicio 4
+    //Crea una función que dado 2 números enteros los divida y devuelva la parte entera de la división. Si el divisor es 0 devuelve nulo
+    //Ejemplo:     5/2 -> 2
+    println("-------------------------------------------")
+    print("Introduce el primer número: ")
+    val num1 = scanner.nextInt()
+    print("Introduce el segundo número: ")
+    val num2 = scanner.nextInt()
+
+    val resultado = if (num2 != 0) num1 / num2 else null
+
+    if (resultado != null) {
+        println("La división entera de $num1/$num2 es: $resultado")
     } else {
         println("La división de $num1/$num2 es: null (división por cero)")
     }
