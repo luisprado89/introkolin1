@@ -16,12 +16,11 @@ fun main() {
 
 // Usamos un bloque 'when' para seleccionar la opción
     when (opcion) {
-        1 -> {  // Si el usuario elige la opción 1
-            println("Ejercicio 1: Concatenar dos cadenas")  // Muestra el título del ejercicio
-            // Pedir las cadenas por teclado
-            print("Introduce la primera cadena: ")  // Solicita la primera cadena
+        1 -> { 
+            println("Ejercicio 1: Concatenar dos cadenas")
+            print("Introduce la primera cadena: ")
             val cadena1 = readLine() ?: ""  // Lee la primera cadena, y si no se proporciona nada, asigna una cadena vacía
-            print("Introduce la segunda cadena: ")  // Solicita la segunda cadena
+            print("Introduce la segunda cadena: ")
             val cadena2 = readLine() ?: ""  // Lee la segunda cadena, y si no se proporciona nada, asigna una cadena vacía
             val resultado = concatenateStrings(cadena1, cadena2)  // Llama a la función para concatenar las cadenas
             println("Resultado de la concatenación: $resultado")  // Muestra el resultado de la concatenación
