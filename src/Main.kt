@@ -97,12 +97,16 @@ fun main() {
             println("No has ingresado un dia valido")
         }
     }
-    exercise1()
-    exercise2()
+    //exercise1()
+    //exercise2()
+    exercise3()
 }//main
 
 fun exercise1(){
     //Ejercicio 1
+    //Crea una función que dado 2 números enteros los sume y devuelva el resultado
+    //Ejemplo: 2+2 -> 4
+
     println("Ejercicio 1: Suma")
     print("Introduce el primer número: ")
     val num1 = scanner.nextInt()
@@ -113,6 +117,9 @@ fun exercise1(){
 }
 fun exercise2() {
     //Ejercicio 2
+    //Crea una función que dado 2 números enteros los multiplique y devuelva el resultado
+    //Ejemplo:    2*2 -> 4
+
     println("Ejercicio 2: Multiplicación")
     print("Introduce el primer número: ")
     val num1 = scanner.nextInt()
@@ -120,4 +127,25 @@ fun exercise2() {
     val num2 = scanner.nextInt()
     val resultado = num1 * num2
     println("La multiplicación de $num1 * $num2 es: $resultado")
+}
+fun exercise3() {
+    //Ejercicio 3
+    //Crea una función que dado 2 números enteros (dividendo y divisor) los divida y devuelva el resultado solo si el divisor no es 0 en caso contrario devuelve nulo
+    //Ejemplo:
+    //5/0 -> null
+    //5/2 -> 2,5
+
+    println("-------------------------------------------")
+    print("Introduce el primer número: ")
+    val num1 = scanner.nextInt()
+    print("Introduce el segundo número: ")
+    val num2 = scanner.nextInt()
+
+    val resultado = if (num2 != 0) num1.toDouble() / num2 else null
+
+    if (resultado != null) {
+        println("La división de $num1/$num2 es: $resultado")
+    } else {
+        println("La división de $num1/$num2 es: null (división por cero)")
+    }
 }
