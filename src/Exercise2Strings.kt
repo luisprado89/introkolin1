@@ -25,6 +25,17 @@ fun main() {
             val resultado = concatenateStrings(cadena1, cadena2)  // Llama a la función para concatenar las cadenas
             println("Resultado de la concatenación: $resultado")  // Muestra el resultado de la concatenación
         }
+        2 -> {  // Si el usuario elige la opción 2
+            println("Ejercicio 2: Sustituir un carácter en una frase")
+            print("Introduce una frase: ")
+            val frase = readLine() ?: ""  // Lee la frase proporcionada
+            print("Introduce la letra a buscar: ")
+            val letraABuscar = readLine() ?: ""  // Lee el carácter a buscar
+            print("Introduce la letra a sustituir: ")
+            val letraASustituir = readLine() ?: ""  // Lee el carácter a sustituir
+            val resultado = sustituirCaracter(frase, letraABuscar, letraASustituir)  // Llama a la función para sustituir caracteres
+            println("Resultado: $resultado")  //Resultado de la sustitución
+        }
         else -> println("Opción no válida.")  // Si el usuario elige una opción no válida, muestra un mensaje de error
     }
 }
@@ -35,4 +46,11 @@ fun concatenateStrings(cadena1: String, cadena2: String): String {
     //"esta es una cadena" y "otra cadena" -> "esta es una cadenaotra cadena"
 
     return cadena1 + cadena2  // Devuelve la concatenación de las dos cadenas
+}
+fun sustituirCaracter(frase: String, letraABuscar: String, letraASustituir: String): String {
+//    Ejercicio 2
+//    Crea una función que dada una frase sustituya un caracter por otro
+// Ejemplo:
+//  "esta frase es de ejemplo" letra a buscar "a" letra a sustituir "i" -> "esti frise es de ejemplo"
+    return frase.replace(letraABuscar, letraASustituir)  // Usa 'replace' para sustituir todos los caracteres 'letraABuscar' por 'letraASustituir'
 }
