@@ -61,6 +61,15 @@ fun main() {
             val resultado = comprobarIguales(frase)  // Llama a la función para comprobar si los primeros y últimos caracteres son iguales
             println("Resultado: $resultado")  // Muestra el resultado
         }
+        6 -> {
+            println("Ejercicio 6: Comprobar que 2 textos son iguales sin tener en cuenta mayúsculas")
+            print("Introduce el primer texto: ")
+            val texto1 = readLine() ?: ""
+            print("Introduce el segundo texto: ")
+            val texto2 = readLine() ?: ""
+            val resultado = comprobarIgualdadTexto(texto1, texto2)// Llama a la función para comprobar si los textos son iguales sin distinguir mayúsculas
+            println("Resultado: $resultado")//Mostramos el resultado
+        }
         else -> println("Opción no válida.")  // Si el usuario elige una opción no válida, muestra un mensaje de error
     }
 }
@@ -114,4 +123,11 @@ fun comprobarIguales(frase: String): Boolean {
     } else {
         false  // Si la frase tiene menos de 2 caracteres, devuelve 'false'
     }
+}
+fun comprobarIgualdadTexto(texto1: String, texto2: String): Boolean {
+//    Ejercicio 6
+//    Comprueba que 2 textos son iguales independientemente de si son mayusculas o no
+//    Ejemplo:     "Hola" "hola" -> true            "MAR", "SDW"  -> false
+
+    return texto1.equals(texto2, ignoreCase = true)  // (.equals)Compara los dos textos (ignoreCase)ignorando mayúsculas/minúsculas
 }
