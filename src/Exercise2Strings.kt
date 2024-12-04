@@ -54,6 +54,13 @@ fun main() {
             val resultado = duplicarPrimerasLetras(palabra)// Llama a la función para duplicar las dos primeras letras
             println("Resultado: $resultado")// Muestra el resultado
         }
+        5 -> {
+            println("Ejercicio 5: Comprobar que los 2 primeros y los 2 últimos caracteres son iguales")
+            print("Introduce una frase: ")
+            val frase = readLine() ?: ""
+            val resultado = comprobarIguales(frase)  // Llama a la función para comprobar si los primeros y últimos caracteres son iguales
+            println("Resultado: $resultado")  // Muestra el resultado
+        }
         else -> println("Opción no válida.")  // Si el usuario elige una opción no válida, muestra un mensaje de error
     }
 }
@@ -95,5 +102,16 @@ fun duplicarPrimerasLetras(palabra: String): String {
         palabra.substring(0, 2) + palabra.substring(0, 2)  // Devuelve las dos primeras letras duplicadas
     } else {
         palabra  // Si la palabra tiene menos de 2 caracteres, simplemente la devuelve tal cual
+    }
+}
+fun comprobarIguales(frase: String): Boolean {
+//    Ejercicio 5
+//    Crea una función que dada una frase compruebe que los 2 primeros caracteres son iguales que los 2 últimos
+//    Ejemplo:     "este es el texto" -> false
+
+    return if (frase.length >= 2) {  // Si la frase tiene al menos 2 caracteres
+        frase.substring(0, 2) == frase.substring(frase.length - 2)  // Compara los dos primeros caracteres con los dos últimos
+    } else {
+        false  // Si la frase tiene menos de 2 caracteres, devuelve 'false'
     }
 }
