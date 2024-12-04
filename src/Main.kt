@@ -50,7 +50,12 @@ fun principal(){
     > (Mayor que): Devuelve true si el primer valor es mayor que el segundo, false en caso contrario.
     <= (Menor o igual a): Devuelve true si el primer valor es menor o igual al segundo, false en caso contrario.
     >= (Mayor o igual a): Devuelve true si el primer valor es mayor o igual al segundo, false en caso contrario.
-     */
+
+     Operadores lógicos
+
+    && (and): Devuelve true si ambas condiciones son verdaderas. Si alguna de las condiciones es falsa, devuelve false.
+    || (or): Devuelve true si al menos una de las condiciones es verdadera. Si ambas condiciones son falsas, devuelve false.
+*/
     /*
     El if y el else son estructuras de control de flujo en programación que permiten tomar decisiones basadas en condiciones. En esencia:
 
