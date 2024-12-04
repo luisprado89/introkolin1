@@ -36,6 +36,15 @@ fun main() {
             val resultado = sustituirCaracter(frase, letraABuscar, letraASustituir)  // Llama a la función para sustituir caracteres
             println("Resultado: $resultado")  //Resultado de la sustitución
         }
+        3 -> {
+            println("Ejercicio 3: Borrar un carácter al principio o al final de una frase")
+            print("Introduce una frase: ")
+            val frase = readLine() ?: ""  // Lee la frase proporcionada
+            print("Introduce el carácter a borrar: ")
+            val caracter = readLine() ?: ""  // Lee el carácter a borrar
+            val resultado = borrarCaracter(frase, caracter)// Llamamos a la función para borrar el carácter
+            println("Resultado: $resultado")// Mostramos el resultado después de borrar el carácter
+        }
         else -> println("Opción no válida.")  // Si el usuario elige una opción no válida, muestra un mensaje de error
     }
 }
@@ -53,4 +62,14 @@ fun sustituirCaracter(frase: String, letraABuscar: String, letraASustituir: Stri
 // Ejemplo:
 //  "esta frase es de ejemplo" letra a buscar "a" letra a sustituir "i" -> "esti frise es de ejemplo"
     return frase.replace(letraABuscar, letraASustituir)  // Usa 'replace' para sustituir todos los caracteres 'letraABuscar' por 'letraASustituir'
+}
+fun borrarCaracter(frase: String, caracter: String): String {
+    var resultado = frase  // Crea una variable para almacenar la frase modificada empezando con su valor
+    if (resultado.startsWith(caracter)) {// .startsWith Si la frase comienza con el carácter dado
+        resultado = resultado.removePrefix(caracter)//.removePrefix Elimina el carácter del principio
+    }
+    if (resultado.endsWith(caracter)) {//.endsWith Si la frase termina con el carácter dado
+        resultado = resultado.removeSuffix(caracter)//.removeSuffix Elimina el carácter del final
+    }
+    return resultado  // Devuelve la frase resultante
 }
