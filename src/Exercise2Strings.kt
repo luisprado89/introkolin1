@@ -33,5 +33,6 @@ fun concatenateStrings(cadena1: String, cadena2: String): String {
     //Crea una función que dados 2 strings los concatene y los devuelva
     //Ejemplo:
     //"esta es una cadena" y "otra cadena" -> "esta es una cadenaotra cadena"
+
     return cadena1 + cadena2  // Devuelve la concatenación de las dos cadenas
 }
