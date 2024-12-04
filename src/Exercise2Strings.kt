@@ -7,6 +7,8 @@ fun main() {
     println("4. Duplicar las dos primeras letras de una palabra")
     println("5. Comprobar que los 2 primeros y los 2 últimos caracteres son iguales")
     println("6. Comprobar que 2 textos son iguales sin tener en cuenta mayúsculas")
+    println("-------------------------------------------------------------------------")
+
     print("Ingresa el número del ejercicio: ")
     // Lee la línea de texto ingresada por el usuario,
     val opcion = readLine()?.toIntOrNull()?: return
@@ -45,6 +47,13 @@ fun main() {
             val resultado = borrarCaracter(frase, caracter)// Llamamos a la función para borrar el carácter
             println("Resultado: $resultado")// Mostramos el resultado después de borrar el carácter
         }
+        4 -> {
+            println("Ejercicio 4: Duplicar las dos primeras letras de una palabra")
+            print("Introduce una palabra: ")
+            val palabra = readLine() ?: ""
+            val resultado = duplicarPrimerasLetras(palabra)// Llama a la función para duplicar las dos primeras letras
+            println("Resultado: $resultado")// Muestra el resultado
+        }
         else -> println("Opción no válida.")  // Si el usuario elige una opción no válida, muestra un mensaje de error
     }
 }
@@ -64,6 +73,10 @@ fun sustituirCaracter(frase: String, letraABuscar: String, letraASustituir: Stri
     return frase.replace(letraABuscar, letraASustituir)  // Usa 'replace' para sustituir todos los caracteres 'letraABuscar' por 'letraASustituir'
 }
 fun borrarCaracter(frase: String, caracter: String): String {
+//    Ejercicio 3
+//    Crea una función que dado una frase borre el caracter que se le pasa si la contiene al principio o al final de la frase
+//    Ejemplo:     "esta frase es de ejemplo" caracter "o" -> "esta frase es de ejempl"
+
     var resultado = frase  // Crea una variable para almacenar la frase modificada empezando con su valor
     if (resultado.startsWith(caracter)) {// .startsWith Si la frase comienza con el carácter dado
         resultado = resultado.removePrefix(caracter)//.removePrefix Elimina el carácter del principio
@@ -72,4 +85,15 @@ fun borrarCaracter(frase: String, caracter: String): String {
         resultado = resultado.removeSuffix(caracter)//.removeSuffix Elimina el carácter del final
     }
     return resultado  // Devuelve la frase resultante
+}
+fun duplicarPrimerasLetras(palabra: String): String {
+//    Ejercicio 4
+//    Crea una función que dado un texto devuelva 2 veces las 2 primeras letras. Ejemplo "swift" devuelve "swsw"
+//    Ejemplo:    "este es el texto" -> "eses"
+
+    return if (palabra.length >= 2) {  // Si la palabra tiene al menos 2 caracteres
+        palabra.substring(0, 2) + palabra.substring(0, 2)  // Devuelve las dos primeras letras duplicadas
+    } else {
+        palabra  // Si la palabra tiene menos de 2 caracteres, simplemente la devuelve tal cual
+    }
 }
