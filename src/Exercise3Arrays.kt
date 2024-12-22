@@ -43,7 +43,15 @@ fun main() {
             val resultado = existeNumero(conjunto, numero)
             println("Resultado: $resultado")
         }
-
+        3 -> {
+            println("Ejercicio 3: Contar las repeticiones de un número en un conjunto")
+            print("Introduce los números del conjunto separados por comas: ")
+            val conjunto = readLine()?.split(",")?.mapNotNull { it.toIntOrNull() } ?: return
+            print("Introduce el número a contar: ")
+            val numero = readLine()?.toIntOrNull() ?: return
+            val resultado = contarRepeticiones(conjunto, numero)
+            println("Resultado: $resultado")
+        }
         else -> println("Opción no válida.")
     }
 }
@@ -70,4 +78,15 @@ fun insertNumber(array: MutableList<Int>, number: Int, position: Int): MutableLi
 
 fun existeNumero(conjunto: Set<Int>, numero: Int): Boolean {
     return numero in conjunto
+}
+
+// Ejercicio 3
+//    Crea una función que dado un conjunto de enteros devuelva el número de veces que se repite un
+//    número dado
+//    Ejemplo:
+//    [1,2,3,4,5,6] número 3 -> 1
+
+
+fun contarRepeticiones(conjunto: List<Int>, numero: Int): Int {
+    return conjunto.count { it == numero }
 }
