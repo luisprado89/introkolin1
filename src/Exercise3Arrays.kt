@@ -59,6 +59,15 @@ fun main() {
             val resultado = ordenarDescendente(conjunto)
             println("Resultado: $resultado")
         }
+        5 -> {
+            println("Ejercicio 5: Añadir un elemento a un array de cadenas")
+            print("Introduce las cadenas del array separadas por comas: ")
+            val array = readLine()?.split(",")?.toMutableList() ?: return
+            print("Introduce la nueva cadena a añadir: ")
+            val nuevaCadena = readLine() ?: return
+            val resultado = anadirElemento(array, nuevaCadena)
+            println("Resultado: $resultado")
+        }
 
         else -> println("Opción no válida.")
     }
@@ -117,4 +126,16 @@ fun ordenarDescendente(conjunto: MutableList<Int>): List<Int> {
         }
     }
     return conjunto
+}
+
+// Ejercicio 5
+//    Crea una función que dado un conjunto de String añada un nuevo elemento que se le pase y devuelva el nuevo array
+//    Ejemplo:
+//    ["aa","bb","cc","dd"] "ee"-> ["aa","bb","cc","dd","ee"]
+
+
+
+fun anadirElemento(array: MutableList<String>, nuevoElemento: String): List<String> {
+    array.add(nuevoElemento)
+    return array
 }
