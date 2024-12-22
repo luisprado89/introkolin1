@@ -155,26 +155,27 @@ Un **array** en Kotlin es una estructura de datos que contiene elementos del mis
 
 ## Listas
 
-| **Tipo**                          | **Descripción**                                                       | **Ejemplo de uso**                                                    |
-|-----------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|
-| `List` (Inmutable)                | Lista de tamaño fijo que no puede modificarse.                        | `val listaInmutable = listOf(1, 2, 3)`                                |
-| `MutableList` (Mutable)           | Lista de tamaño variable que permite modificaciones.                  | `val listaMutable = mutableListOf(1, 2, 3)`                          |
-| `ArrayList` (Mutable)             | Lista dinámica de tamaño variable, permite agregar, eliminar y modificar elementos. | `val listaMutable = arrayListOf(1, 2, 3)`                            |
+| **Tipo**                          | **Descripción**                                                       | **Ejemplo Correcto**                                                  | **Ejemplo Incorrecto**                                             |
+|-----------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|--------------------------------------------------------------------|
+| `List` (Inmutable)                | Lista de tamaño fijo que no puede modificarse.                        | `val listaInmutable = listOf(1, 2, 3)`                                | `listaInmutable.add(4)` → **Error**: `List` no permite modificaciones. |
+| `MutableList` (Mutable)           | Lista de tamaño variable que permite modificaciones.                  | `val listaMutable = mutableListOf(1, 2, 3); listaMutable.add(4)`      | `val listaMutable = mutableListOf(1, 2, 3); listaMutable = listOf(4)` → **Error**: No se puede reasignar un tipo mutable a uno inmutable. |
+| `ArrayList` (Mutable)             | Lista dinámica de tamaño variable, permite agregar, eliminar y modificar elementos. | `val listaArray = arrayListOf(1, 2, 3); listaArray.remove(2)`         | `val listaArray = arrayListOf(1, 2, 3); listaArray[5] = 6` → **Error**: Índice fuera de rango. |
 
+---
 ## Conjuntos (Sets)
 
-| **Tipo**                          | **Descripción**                                                       | **Ejemplo de uso**                                                    |
-|-----------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|
-| `Set` (Inmutable)                 | Colección de elementos únicos, no permite duplicados.                 | `val conjunto = setOf(1, 2, 3)`                                       |
-| `MutableSet` (Mutable)            | Conjunto de elementos únicos que permite modificaciones.              | `val conjuntoMutable = mutableSetOf(1, 2, 3)`                         |
+| **Tipo**                          | **Descripción**                                                       | **Ejemplo Correcto**                                                  | **Ejemplo Incorrecto**                                             |
+|-----------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|--------------------------------------------------------------------|
+| `Set` (Inmutable)                 | Colección de elementos únicos, no permite duplicados.                 | `val conjunto = setOf(1, 2, 3)`                                       | `val conjunto = setOf(1, 2, 2)` → **Error**: `Set` no permite duplicados (aunque se ignoran al crear el conjunto). |
+| `MutableSet` (Mutable)            | Conjunto de elementos únicos que permite modificaciones.              | `val conjuntoMutable = mutableSetOf(1, 2, 3); conjuntoMutable.add(4)` | `val conjuntoMutable = mutableSetOf(1, 2, 3); conjuntoMutable.add(2)` → No genera error, pero el `Set` no almacena duplicados. |
 
+---
 ## Mapas
 
-| **Tipo**                          | **Descripción**                                                       | **Ejemplo de uso**                                                    |
-|-----------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|
-| `Map` (Inmutable)                 | Mapa de pares clave-valor donde las claves no se repiten.             | `val mapa = mapOf(1 to "uno", 2 to "dos")`                            |
-| `MutableMap` (Mutable)            | Mapa de pares clave-valor que permite agregar, eliminar o modificar. | `val mapaMutable = mutableMapOf(1 to "uno", 2 to "dos")`              |
-
+| **Tipo**                          | **Descripción**                                                       | **Ejemplo Correcto**                                                  | **Ejemplo Incorrecto**                                             |
+|-----------------------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------|--------------------------------------------------------------------|
+| `Map` (Inmutable)                 | Mapa de pares clave-valor donde las claves no se repiten.             | `val mapa = mapOf(1 to "uno", 2 to "dos")`                            | `val mapa = mapOf(1 to "uno", 1 to "otro uno")` → **Error**: Las claves deben ser únicas. |
+| `MutableMap` (Mutable)            | Mapa de pares clave-valor que permite agregar, eliminar o modificar. | `val mapaMutable = mutableMapOf(1 to "uno"); mapaMutable[2] = "dos"` | `val mapaMutable = mutableMapOf(1 to "uno"); mapaMutable.add(2)` → **Error**: Los mapas usan el operador `put` o índices para agregar valores. |
 ## Resumen:
 - **Inmutables**:
     - `List`, `Set`, `Map`: No puedes modificar su contenido una vez creadas.
@@ -325,4 +326,145 @@ Funciones anónimas que pueden ser almacenadas en variables o pasadas como argum
 
 ---
 
-## 
+## //Funciones de kotlin
+
+## **12. Funciones útiles en Kotlin
+   Conversión y manejo de cadenas:
+
+#### ?.toIntOrNull()
+   
+- Convierte la entrada a un número entero. Si falla, devuelve null.
+ ```kotlin
+  val numero = readLine()?.toIntOrNull() ?: return
+```
+#### ?.toDoubleOrNull()
+- Convierte la entrada a un número decimal (Double). Si falla, devuelve null.
+ ```kotlin
+val decimal = readLine()?.toDoubleOrNull() ?: return
+ ```
+#### ?.trim()
+- Elimina espacios al principio y al final de una cadena.
+ ```kotlin
+val textoLimpio = readLine()?.trim()
+ ```
+#### ?.toUpperCase() / ?.toLowerCase()
+- Convierte todos los caracteres de una cadena a mayúsculas o minúsculas.
+ ```kotlin
+val textoMayusculas = readLine()?.toUpperCase()//mayúsculas
+val textoMinusculas = readLine()?.toLowerCase(//minúsculas
+ ```
+#### ?.isNotEmpty()
+- Verifica si la cadena no está vacía.
+ ```kotlin
+val esNoVacia = readLine()?.isNotEmpty() ?: return
+ ```
+#### ?.contains("subcadena")
+- Verifica si una cadena contiene una subcadena específica.
+ ```kotlin
+val contienePalabra = readLine()?.contains("Kotlin") ?: return
+ ```
+#### ?.replace("viejo", "nuevo")
+- Reemplaza todas las apariciones de una subcadena por otra.
+ ```kotlin
+val textoReemplazado = readLine()?.replace("Kotlin", "Java")
+ ```
+#### ?.substring(startIndex: Int)
+- Devuelve una subcadena desde el índice especificado hasta el final.
+ ```kotlin
+val subcadena = readLine()?.substring(3)
+ ```
+#### ?.substring(startIndex: Int, endIndex: Int)
+- Devuelve una subcadena desde el índice startIndex hasta endIndex - 1.
+ ```kotlin
+val subcadena = readLine()?.substring(1, 4)
+ ```
+#### ?.toCharArray()
+- Convierte una cadena en un arreglo de caracteres.
+ ```kotlin
+val charArray = readLine()?.toCharArray()
+ ```
+#### ?.reversed()
+- Devuelve una nueva cadena con los caracteres en orden inverso.
+ ```kotlin
+    val textoRevertido = readLine()?.reversed()
+ ```
+### Operaciones con listas:
+
+#### joinToString(", ")
+- Convierte una lista en una cadena con un separador específico.
+ ```kotlin
+val cadena = listOf(1, 2, 3).joinToString(", ")
+ ```
+#### forEach { }
+- Itera sobre los elementos de una colección.
+ ```kotlin
+val lista = listOf(1, 2, 3)
+lista.forEach { println(it) }
+ ```
+#### map { }
+- Crea una nueva lista transformando cada elemento de la original.
+ ```kotlin
+val lista = listOf(1, 2, 3)
+val duplicados = lista.map { it * 2 }
+ ```
+#### filter { }
+- Filtra los elementos que cumplen una condición.
+ ```kotlin
+val lista = listOf(1, 2, 3, 4, 5)
+val filtrados = lista.filter { it % 2 == 0 }
+ ```
+#### sum() y average()
+- Calcula la suma o el promedio de los elementos numéricos.
+ ```kotlin
+val lista = listOf(1, 2, 3)
+val suma = lista.sum()
+val promedio = lista.average()
+ ```
+#### find { }
+- Devuelve el primer elemento que cumple una condición o null si no existe.
+ ```kotlin
+val lista = listOf(1, 2, 3)
+val encontrado = lista.find { it > 2 }
+ ```
+#### firstOrNull() y lastOrNull()
+- Devuelve el primer o último elemento, o null si la lista está vacía.
+ ```kotlin
+val lista = listOf(1, 2, 3)
+val primero = lista.firstOrNull()
+val ultimo = lista.lastOrNull()
+ ```
+#### take(n) y drop(n)
+- Toma o elimina los primeros n elementos de una lista.
+ ```kotlin
+val lista = listOf(1, 2, 3, 4, 5)
+val primerosTres = lista.take(3)
+val sinPrimerosDos = lista.drop(2)
+ ```
+#### sorted() y reversed()
+- Devuelve una lista ordenada o invertida.
+ ```kotlin
+val lista = listOf(3, 1, 4, 2)
+val listaOrdenada = lista.sorted()
+val listaRevertida = lista.reversed()
+ ```
+#### split(",")
+- Divide una cadena en una lista de subcadenas usando un delimitador.
+ ```kotlin
+val partes = "1,2,3".split(",")
+ ```
+#### mapNotNull { }
+- Transforma los elementos de una lista, eliminando los valores null.
+ ```kotlin
+val lista = listOf("1", "a", "3")
+val numeros = lista.mapNotNull { it.toIntOrNull() }
+ ```
+#### toMutableList()
+- Convierte una lista en mutable.
+ ```kotlin
+val lista = listOf(1, 2, 3).toMutableList()
+ ```
+#### ?: return
+- Termina la ejecución si un valor es null.
+ ```kotlin
+val entrada = readLine()?.toIntOrNull() ?: return
+ ```
