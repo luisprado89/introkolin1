@@ -68,7 +68,13 @@ fun main() {
             val resultado = anadirElemento(array, nuevaCadena)
             println("Resultado: $resultado")
         }
-
+        6 -> {
+            println("Ejercicio 6: Encontrar el primer número faltante entre 1 y 1,000,000")
+            print("Introduce los números del conjunto separados por comas: ")
+            val conjunto = readLine()?.split(",")?.mapNotNull { it.toIntOrNull() }?.toSet() ?: return
+            val resultado = primerFaltante(conjunto)
+            println("Resultado: $resultado")
+        }
         else -> println("Opción no válida.")
     }
 }
@@ -138,4 +144,20 @@ fun ordenarDescendente(conjunto: MutableList<Int>): List<Int> {
 fun anadirElemento(array: MutableList<String>, nuevoElemento: String): List<String> {
     array.add(nuevoElemento)
     return array
+}
+
+// Ejercicio 6
+//    Crea una función que dado un conjunto de Int devuelva el primer número entre 1 y 1000000 que no se encuentre dentro del array
+//    Ejemplo:
+//    [1,4,3,5,2] devuelve 6
+//    [1,6,3,5,2] devuelve 4
+
+
+fun primerFaltante(conjunto: Set<Int>): Int {
+    for (i in 1..1_000_000) {
+        if (i !in conjunto) {
+            return i
+        }
+    }
+    return -1 // Si no hay faltante
 }
