@@ -52,6 +52,14 @@ fun main() {
             val resultado = contarRepeticiones(conjunto, numero)
             println("Resultado: $resultado")
         }
+        4 -> {
+            println("Ejercicio 4: Ordenar un conjunto de enteros de mayor a menor")
+            print("Introduce los números del conjunto separados por comas: ")
+            val conjunto = readLine()?.split(",")?.mapNotNull { it.toIntOrNull() }?.toMutableList() ?: return
+            val resultado = ordenarDescendente(conjunto)
+            println("Resultado: $resultado")
+        }
+
         else -> println("Opción no válida.")
     }
 }
@@ -89,4 +97,24 @@ fun existeNumero(conjunto: Set<Int>, numero: Int): Boolean {
 
 fun contarRepeticiones(conjunto: List<Int>, numero: Int): Int {
     return conjunto.count { it == numero }
+}
+
+// Ejercicio 4
+//    Crea una función que dado un conjunto de enteros los ordene de mayor a menor y devuelva el array
+//    resultante. NO SE PUEDE USAR SORT
+//    Ejemplo:
+//    [6,2,3,4,5,1] -> [1,2,3,4,5,6]
+
+
+fun ordenarDescendente(conjunto: MutableList<Int>): List<Int> {
+    for (i in conjunto.indices) {
+        for (j in i + 1 until conjunto.size) {
+            if (conjunto[i] < conjunto[j]) {
+                val temp = conjunto[i]
+                conjunto[i] = conjunto[j]
+                conjunto[j] = temp
+            }
+        }
+    }
+    return conjunto
 }

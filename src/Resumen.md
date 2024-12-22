@@ -447,6 +447,22 @@ val lista = listOf(3, 1, 4, 2)
 val listaOrdenada = lista.sorted()
 val listaRevertida = lista.reversed()
  ```
+#### sortedDescending() y sortDescending()
+
+- sortedDescending(): Devuelve una nueva lista ordenada en orden descendente, sin modificar la lista original.
+- sortDescending(): Ordena la lista original en orden descendente, modificándola directamente.
+ ```kotlin
+val lista = mutableListOf(3, 1, 4, 2)
+
+// Usando sortedDescending (devuelve una nueva lista)
+val listaOrdenada = lista.sortedDescending()
+
+// Usando sortDescending (modifica la lista original)
+lista.sortDescending()
+
+println("Lista ordenada con sortedDescending: $listaOrdenada") // [4, 3, 2, 1]
+println("Lista modificada con sortDescending: $lista") // [4, 3, 2, 1]
+```
 #### split(",")
 - Divide una cadena en una lista de subcadenas usando un delimitador.
  ```kotlin
