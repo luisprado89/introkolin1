@@ -34,6 +34,15 @@ fun main() {
                 println("No se pudo insertar el número en la posición indicada.")
             }
         }
+        2 -> {
+            println("Ejercicio 2: Verificar si existe un número en un conjunto de enteros")
+            print("Introduce los números del conjunto separados por comas: ")
+            val conjunto = readLine()?.split(",")?.mapNotNull { it.toIntOrNull() }?.toSet() ?: return
+            print("Introduce el número a buscar: ")
+            val numero = readLine()?.toIntOrNull() ?: return
+            val resultado = existeNumero(conjunto, numero)
+            println("Resultado: $resultado")
+        }
 
         else -> println("Opción no válida.")
     }
@@ -51,4 +60,14 @@ fun insertNumber(array: MutableList<Int>, number: Int, position: Int): MutableLi
     // Inserta el número en la posición indicada
     array.add(position, number)
     return array // Devuelve el array con el número insertado
+}
+
+// Ejercicio 2
+//    Crea una función que dado un conjunto de enteros devuelva si existe un número dentro de él
+//    Ejemplo:
+//    [1,2,3,4,5,6] existe 3 -> true
+
+
+fun existeNumero(conjunto: Set<Int>, numero: Int): Boolean {
+    return numero in conjunto
 }
